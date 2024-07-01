@@ -19,13 +19,21 @@ IMAGE_INSTALL += "\
 	openssh-ssh \
 	openssh-sshd \
 	vim \
+	libgpiod-tools \
 "
 
+
+
 IMAGE_LINGUAS = " "
-IMAGE_FEATURES += "package-management"
+IMAGE_FEATURES += "splash package-management x11-base"
 
 # Make the rootfs big enough (5.5 GB), so we're able to install additional packages
 IMAGE_ROOTFS_SIZE = "5767168"
 
 inherit core-image
 require password.inc
+
+
+#DISTRO_FEATURES:append = " x11"
+#IMAGE_INSTALL:append = " python3-tkinter tcl-dev"
+#PACKAGECONFIG:append:pn-python3 = " tk"
